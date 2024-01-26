@@ -21,7 +21,7 @@ const DetailsBanner = ({ id, data, loading, error }: Props) => {
   const [selectedImage, setSelectedImage] = useState(
     newData ? newData?.imgs[0]?.img : ""
   );
-
+console.log(newData);
   const [tickets, setTickets] = useState<any>([]);
   const navigate = useNavigate();
 
@@ -271,7 +271,7 @@ const DetailsBanner = ({ id, data, loading, error }: Props) => {
                                               htmlFor="quantity"
                                               className="block text-sm font-medium text-white dark:text-white"
                                             ></label>
-                                            <div className="relative flex items-center max-w-[8rem]">
+                                            <div className="relative  flex items-center max-w-[8rem]">
                                               <button
                                                 type="button"
                                                 id="decrement-button"

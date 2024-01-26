@@ -77,7 +77,7 @@ const Carousel = ({ data, loading, title }: Props) => {
                 >
                   <div className="posterBlock">
                     <Img src={posterUrl} />
-                    <Tags data={getTags(item?.tags).slice(0, 2)} />
+                   <Tags data={getTags(item?.tags).slice(0, 2)} />
                   </div>
                   <div className="textBlock">
                     <span className="title">{item.title}</span>

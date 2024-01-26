@@ -12,7 +12,7 @@ import  axios  from "axios";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { CountryCode, E164Number } from "libphonenumber-js";
-import { toast } from "react-toastify";
+
 
 import { NumericFormat } from "react-number-format";
 import { Link, useNavigate } from "react-router-dom";
@@ -20,7 +20,8 @@ import { getCurrency, getCurrencyCode } from "../../utils/functions";
 import StripeCheckout from "react-stripe-checkout";
 import usePost from "../../hooks/usePost";
 
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {
  
@@ -52,7 +53,10 @@ const SuccessComponent = (props: Props) => {
   const taxPercent = Number(process.env.REACT_APP_TAXPERCENT);
   const baseUrl = process.env.REACT_APP_BASEURL;
   console.log(ticketData);
- 
+  const [tick, setTick]= useState(tickets);
+  const [stripe, setStripe] = useState(stripeData);
+  const [userData, setUserData] = useState(data);
+  const [tickData, setTickData]= useState(ticketData);
   console.log(stripeData);
   const currency= data && getCurrency(data.data);
   const navigate= useNavigate();
@@ -101,8 +105,11 @@ const SuccessComponent = (props: Props) => {
 // console.log(tickdata)
 
 const resetState = () => {
-  navigate.replace('', null);
-  //ticketData(null);
+  setTick({});
+  setStripe({});
+  setUserData({});
+  setTickData({});
+  console.log(tick);
 };
 
 
@@ -118,25 +125,28 @@ const resetState = () => {
  //  });
    const res= await axios.post(`${baseUrl}/dispense/internationalticket`, {
     
-    myCart : tickets,
-    userdata: data,
-    stripeData: stripeData,
-    ticketData: ticketData,
+    myCart : tick,
+    userdata: userData,
+    stripeData: stripe,
+    ticketData: tickData,
   });
    
-  
-   console.log(stripeData);
-   console.log(res.data);
+  toast(res.data.error);
+  console.log(res.data);
+   if(res.data.error === false){
+   
    resetState();
-   console.log(stripeData);
+   console.log(tick);
+}
+ 
 } catch (error) {
    console.log(error);
    
 }
 };
 
-tickets && stripeData && MakeRequest();
-}, [tickets, stripeData])
+tick && stripe && MakeRequest();
+}, [tick, stripe])
 
 
 
@@ -187,14 +197,14 @@ tickets && stripeData && MakeRequest();
                 </dd>
               </div>
 
-              <div className="flex items-center justify-between">
+           <div className="flex items-center justify-between">
                 <dt className="text-base text-customBlack">
                   VAT
                   <span className="ml-2 rounded-lg bg-gray-200 px-2 py-1 text-xs tracking-wide text-gray-600">
                     {taxPercent}%
                   </span>
                 </dt>
-                <dd className="text-base font-medium text-customBlack">
+                            <dd className="text-base font-medium text-customBlack">
                   <NumericFormat
                     value={Number(data.vat).toFixed(2)}
                     displayType={"text"}

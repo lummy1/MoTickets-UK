@@ -11,7 +11,7 @@ import  axios  from "axios";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { CountryCode, E164Number } from "libphonenumber-js";
-import { toast } from "react-toastify";
+
 import { validationSchema } from "./validation";
 import { NumericFormat } from "react-number-format";
 import { Link, useNavigate } from "react-router-dom";
@@ -19,6 +19,8 @@ import { getCurrency, getCurrencyCode } from "../../utils/functions";
 import StripeCheckout from "react-stripe-checkout";
 import usePost from "../../hooks/usePost";
 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 type Props = {
@@ -146,6 +148,7 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
 
  
   useEffect(() => {
+   
     validate();
   }, [formData]);
 
@@ -351,10 +354,10 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
               </div>
               <StripeCheckout
        name = "MoTickets "
-       image = "https://business23.web-hosting.com:2096/cpsess9103547663/3rdparty/roundcube/skins/elastic/images/logo.svg?s=1670945592"
+       image = "https://moloyal.com/images/moticketsicon.png"
       //  billingAddress
       //  shippingAddress
-      currency='NGN'
+      currency={currencycode}
       email={email}
       description={`Your total amount is ${currency}${totalAmount}`}
        amount={totalAmount*100}
@@ -474,10 +477,10 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <StripeCheckout
        name = "MoTickets"
-       image = "https://business23.web-hosting.com:2096/cpsess9103547663/3rdparty/roundcube/skins/elastic/images/logo.svg?s=1670945592"
+       image = "https://moloyal.com/images/moticketsicon.png"
       //  billingAddress
       //  shippingAddress
-      currency='NGN'
+      currency={currencycode}
       email={email}
        description={`Your total amount is ${currency}${totalAmount}`}
        amount={totalAmount*100}

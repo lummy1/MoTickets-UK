@@ -1,16 +1,18 @@
+const imgurl = process.env.REACT_APP_BASEURL;
+
 export const currencies = [
   {
     name: "NGN",
     value: "₦",
   },
-  {
-    name: "USD",
-    value: "$",
-  },
-  {
-    name: "EUR",
-    value: "€",
-  },
+  // {
+  //   name: "USD",
+  //   value: "$",
+  // },
+  // {
+  //   name: "EUR",
+  //   value: "€",
+  // },
   {
     name: "GBP",
     value: "£",
@@ -23,26 +25,26 @@ export const countries = [
     url: "https://motickets.co.uk",
     code: "GB",
   },
-  {
-    name: "United States",
-    url: "https://motickets.co",
-    code: "US",
-  },
+  // {
+  //   name: "United States",
+  //   url: "https://motickets.co",
+  //   code: "US",
+  // },
   {
     name: "Nigeria",
     url: "https://motickets.ng",
     code: "NG",
   },
-  {
-    name: "Canada",
-    url: "https://motickets.co",
-    code: "CA",
-  },
-  {
-    name: "Ghana",
-    url: "https://motickets.co",
-    code: "GH",
-  },
+  // {
+  //   name: "Canada",
+  //   url: "https://motickets.co",
+  //   code: "CA",
+  // },
+  // {
+  //   name: "Ghana",
+  //   url: "https://motickets.co",
+  //   code: "GH",
+  // },
 ];
 
 export const guests = [
@@ -91,5 +93,30 @@ export const company = [
   {
     name: "Terms of Service",
     url: "",
+  },
+];
+
+
+
+export const offers = [
+  {
+    title: "test title",
+    url: "https://motickets.co.uk",
+    imgs: `${imgurl}/offer_images/1.png`,
+  },
+  {
+    title: "test title",
+    url: "https://motickets.co.uk",
+    imgs: `${imgurl}/offer_images/2.png`,
+  },
+  {
+    title: "test title",
+    url: "https://motickets.co.uk",
+    imgs: `${imgurl}/offer_images/3.png`,
+  },
+  {
+    title: "test title",
+    url: "/loyalty",
+    imgs: `${imgurl}/offer_images/4.png`,
   },
 ];
