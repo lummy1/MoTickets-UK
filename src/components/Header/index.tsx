@@ -70,7 +70,7 @@ const Header = () => {
           <img src={logo} alt="Website logo" />
         </div>
         <ul className="menuItems">
-        <li className="menuItem" onClick={() => navigationHandler("/organisers")}>
+        <li className="menuItem" onClick={() => navigationHandler("/")}>
            Home
           </li>
         <li className="menuItem" onClick={() => navigationHandler("/organisers")}>

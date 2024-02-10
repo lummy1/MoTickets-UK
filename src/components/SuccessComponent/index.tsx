@@ -47,17 +47,17 @@ interface IBoolean {
 
 
 const SuccessComponent = (props: Props) => {
-  //console.log(props);
+  console.log(props);
   const { ticketData, stripeData, tickets, data } = props;
   const defaultCountryCode = process.env.REACT_APP_COUNTRYCODE;
   const taxPercent = Number(process.env.REACT_APP_TAXPERCENT);
   const baseUrl = process.env.REACT_APP_BASEURL;
-  //console.log(ticketData);
+  console.log(ticketData);
   const [tick, setTick]= useState(tickets);
   const [stripe, setStripe] = useState(stripeData);
   const [userData, setUserData] = useState(data);
   const [tickData, setTickData]= useState(ticketData);
-  //console.log(stripeData);
+  console.log(stripeData);
   const currency= data && getCurrency(data.data);
   const navigate= useNavigate();
   
@@ -109,7 +109,7 @@ const resetState = () => {
   setStripe({});
   setUserData({});
   setTickData({});
-  //console.log(tick);
+  console.log(tick);
 };
 
 
@@ -132,15 +132,15 @@ const resetState = () => {
   });
    
   toast(res.data.error);
-  //console.log(res.data);
+  console.log(res.data);
    if(res.data.error === false){
    
    resetState();
-   //console.log(tick);
+   console.log(tick);
 }
  
 } catch (error) {
-   //console.log(error);
+   console.log(error);
    
 }
 };
@@ -164,7 +164,7 @@ tick && stripe && MakeRequest();
     }}>
        
            {stripeData
-        ? `The tickets have been purchased successfully. `
+        ? `The tickets has been purchased successfully. `
         : `Successfull. Your order is being prepared...`}
       <button onClick={() => navigate("/")} style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
           <div style={{width: "700px" }} className="mt-4 rounded-lg border border-gray-200 bg-white shadow-sm">

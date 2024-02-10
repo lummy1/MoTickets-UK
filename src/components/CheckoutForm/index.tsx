@@ -330,7 +330,7 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
                 </div>
               </div>
 
-              {/* <div className="flex mb-6">
+              <div className="flex mb-6">
                 <div className="flex items-center h-5">
                   <input
                     id="userConsent"
@@ -351,7 +351,7 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
                     Create account with above information.
                   </label>
                 </div>
-              </div> */}
+              </div>
               <StripeCheckout
        name = "MoTickets "
        image = "https://moloyal.com/images/moticketsicon.png"

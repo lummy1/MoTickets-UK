@@ -50,7 +50,7 @@ export const countries = [
 export const guests = [
   {
     name: "Find Events",
-    url: "",
+    url: "events",
   },
   {
     name: "Join a Community",
@@ -65,7 +65,7 @@ export const guests = [
 export const hosts = [
   {
     name: "Create Events",
-    url: "/create-events",
+    url: "/organisers",
   },
   {
     name: "MoLoyal Agent App",
