@@ -10,7 +10,7 @@ const Footer = (props: Props) => {
   const [email, setEmail] = useState("");
 
   const subscribe = () => {
-    console.log(email);
+    //console.log(email);
   };
   return (
     <footer className="bg-blackBg-500 w-full">

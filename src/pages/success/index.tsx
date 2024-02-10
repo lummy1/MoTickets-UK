@@ -11,7 +11,7 @@ const Success = (props: Props) => {
   const data = location?.state?.data;
   const ticketData = location?.state?.ticketData;
   
-  console.log(data, ticketData)
+  //console.log(data, ticketData)
   // Calculate the sum of the amounts
   // const calculateTotalAmount = (prices: any) => {
   //   const price = prices?.reduce(

@@ -71,6 +71,9 @@ const Header = () => {
         </div>
         <ul className="menuItems">
         <li className="menuItem" onClick={() => navigationHandler("/organisers")}>
+           Home
+          </li>
+        <li className="menuItem" onClick={() => navigationHandler("/organisers")}>
            For Business
           </li>
           <li className="menuItem" onClick={() => navigationHandler("/events")}>

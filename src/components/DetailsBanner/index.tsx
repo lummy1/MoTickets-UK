@@ -21,7 +21,7 @@ const DetailsBanner = ({ id, data, loading, error }: Props) => {
   const [selectedImage, setSelectedImage] = useState(
     newData ? newData?.imgs[0]?.img : ""
   );
-console.log(newData);
+//console.log(newData);
   const [tickets, setTickets] = useState<any>([]);
   const navigate = useNavigate();
 

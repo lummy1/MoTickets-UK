@@ -20,7 +20,7 @@ const usePost= (url: string) => {
         }, 5000 * 1);
       })
       .catch((err: any) => {
-        console.log(err);
+        //console.log(err);
         setLoading(false);
         setError("Something went wrong!");
       });

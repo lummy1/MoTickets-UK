@@ -14,12 +14,12 @@ type Props = {
 };
 
 const Card = ({ data, loading, title }: Props) => {
-  console.log(data);
+  //console.log(data);
   const imageURL = process.env.REACT_APP_IMAGEURL;
   const navigate = useNavigate();
 
   const currency = data && getCurrency(data[0]);
-  console.log(currency);
+  //console.log(currency);
 
   const SkItem = () => {
     return (
