@@ -9,6 +9,7 @@ import Checkout from "./pages/checkout";
 import Success from "./pages/success";
 import Search from "./pages/search";
 import AllEvents from "./pages/all";
+import Organisers from "./pages/organisers";
 import Create from "./pages/create";
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/search/:query" element={<Search />} />
             <Route path="/events" element={<AllEvents />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/organisers" element={<Organisers />} />
             <Route path="/success" element={<Success />} />
             <Route path="/create-event" element={<Create />} />
             <Route path="/login" element={<Login />} />

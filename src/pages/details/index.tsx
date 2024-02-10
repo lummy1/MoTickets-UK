@@ -13,9 +13,9 @@ const Details = (props: Props) => {
   return (
     <div>
       <DetailsBanner id={id} data={data} loading={loading} error={error} />
-      <Speakers data={[]} title={"Speakers /Artists"} />
+      {/* <Speakers data={[]} title={"Speakers /Artists"} /> */}
       <Similar />
-      <OtherOrganizerEvents info={data} />
+      {/* <OtherOrganizerEvents info={data} /> */}
     </div>
   );
 };

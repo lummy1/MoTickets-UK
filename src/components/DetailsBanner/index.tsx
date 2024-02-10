@@ -6,7 +6,7 @@ import ContentWrapper from "../../components/ContentWrapper";
 import Img from "../../components/LazyLoadImage";
 import PosterFallback from "../../assets/images/no-poster.png";
 import Tags from "../Tags";
-import { convertHTMLCode, getCurrency, getTags } from "../../utils/functions";
+import { convertHTMLCode, getCurrency, getCurrencyName, getTags } from "../../utils/functions";
 
 type Props = {
   id: any;
@@ -99,7 +99,7 @@ console.log(newData);
   };
 
   const currency = getCurrency(newData);
-
+  const currencyName = getCurrencyName(newData);
   const isButtonEnabled = tickets.some((item: any) => item.qty > 0); // Check if any qty is greater than 0 before button is enabled.
 
   const increment = (index: number) => {
@@ -251,8 +251,9 @@ console.log(newData);
                             >
                               Tickets
                             </h2>
+                            
                           </div>
-
+                          <span className="text-sm font-small text-red-600  ">*includes 49p + 5% admin fee</span>
                           <div className="mt-8">
                             <div className="flow-root">
                               <ul
@@ -263,72 +264,78 @@ console.log(newData);
                                   <li key={index} className="flex py-3">
                                     <div className="flex flex-1 flex-col">
                                       <div>
-                                        <div className="flex justify-between items-center text-base font-medium text-white">
-                                          <h3>{item.name}</h3>
+                                      <div className="flex  items-center text-base font-medium text-white ">
+                                          <h3 className="w-28 ">{item.name}</h3>
 
                                           <form className="max-w-xs mx-auto">
                                             <label
                                               htmlFor="quantity"
                                               className="block text-sm font-medium text-white dark:text-white"
                                             ></label>
-                                            <div className="relative  flex items-center max-w-[8rem]">
-                                              <button
-                                                type="button"
-                                                id="decrement-button"
-                                                onClick={() => decrement(index)}
-                                                className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-red-700 border border-gray-200 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:outline-none"
-                                              >
-                                                <svg
-                                                  className="w-3 h-3 text-gray-900 dark:text-white"
-                                                  aria-hidden="true"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  fill="none"
-                                                  viewBox="0 0 18 2"
+                                            <div className="">
+                                              <div className="relative flex items-center mx-auto max-w-[8rem]">
+                                                <button
+                                                  type="button"
+                                                  id="decrement-button"
+                                                  onClick={() =>
+                                                    decrement(index)
+                                                  }
+                                                  className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-red-700 border border-gray-200 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:outline-none"
                                                 >
-                                                  <path
-                                                    stroke="currentColor"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    d="M1 1h16"
-                                                  />
-                                                </svg>
-                                              </button>
-                                              <input
-                                                type="text"
-                                                id="quantity"
-                                                value={item.qty}
-                                                className="border bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-red-600 focus:border-red-600 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-600 dark:focus:border-red-600"
-                                                onChange={(e) =>
-                                                  handleQuantity(index, e)
-                                                }
-                                              />
-                                              <button
-                                                type="button"
-                                                id="increment-button"
-                                                onClick={() => increment(index)}
-                                                className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-blue-700 border border-gray-100 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:outline-none"
-                                              >
-                                                <svg
-                                                  className="w-3 h-3 text-gray-900 dark:text-white"
-                                                  aria-hidden="true"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  fill="none"
-                                                  viewBox="0 0 18 18"
+                                                  <svg
+                                                    className="w-3 h-3 text-gray-900 dark:text-white"
+                                                    aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 18 2"
+                                                  >
+                                                    <path
+                                                      stroke="currentColor"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                      strokeWidth="2"
+                                                      d="M1 1h16"
+                                                    />
+                                                  </svg>
+                                                </button>
+                                                <input
+                                                  type="text"
+                                                  id="quantity"
+                                                  value={item.qty}
+                                                  className="border bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-red-600 focus:border-red-600 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-600 dark:focus:border-red-600"
+                                                  onChange={(e) =>
+                                                    handleQuantity(index, e)
+                                                  }
+                                                />
+                                                <button
+                                                  type="button"
+                                                  id="increment-button"
+                                                  onClick={() =>
+                                                    increment(index)
+                                                  }
+                                                  className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-blue-700 border border-gray-100 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:outline-none"
                                                 >
-                                                  <path
-                                                    stroke="currentColor"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    d="M9 1v16M1 9h16"
-                                                  />
-                                                </svg>
-                                              </button>
+                                                  <svg
+                                                    className="w-3 h-3 text-gray-900 dark:text-white"
+                                                    aria-hidden="true"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 18 18"
+                                                  >
+                                                    <path
+                                                      stroke="currentColor"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                      strokeWidth="2"
+                                                      d="M9 1v16M1 9h16"
+                                                    />
+                                                  </svg>
+                                                </button>
+                                              </div>
                                             </div>
                                           </form>
 
-                                          <p className="ml-4">{`${currency}${calculateTotalPrice(
+                                          <p className="ml-8 w-[70px]">{`${currency}${calculateTotalPrice(
                                             item
                                           )}`}</p>
                                         </div>

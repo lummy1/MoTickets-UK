@@ -45,7 +45,7 @@ const Offers = () => {
   return (
     <div className="carouselSection">
       <ContentWrapper>
-        <span className="carouselTitle">What We Offer</span>
+        <span className="carouselTitle">What we offer</span>
         {/* <SwitchTabs
           data={["This Week", "This Month"]}
           onTabChange={onTabChange}

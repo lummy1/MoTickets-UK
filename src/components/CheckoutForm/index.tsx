@@ -77,7 +77,7 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
   const navigate = useNavigate()
 
   const onToken = (token: any) =>{
-      console.log(token);
+     
       setStripeToken(token);
      
   }
@@ -109,9 +109,9 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
         replace: true
         })
         //navigate("/success", res.data)
-       console.log(stripeData);
+      
     } catch (error) {
-        console.log(error);
+       
         
     }
     };
@@ -171,7 +171,7 @@ const STRIPE_KEY= process.env.REACT_APP_STRIPE_KEY;
       };
 
       setTicketDatas(ticketData);
-      //console.log(ticketDatas);
+      
       
     }
   };

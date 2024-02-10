@@ -17,9 +17,13 @@ const Trending = () => {
   // };
   const onTabChange = (tab: string) => {
     setEndpoint(
+      // tab === "This Week"
+      //   ? `/eventspercurrency/${currency}`
+      //   : `/eventspercategory/trending`
+
       tab === "This Week"
-        ? `/eventspercurrency/${currency}`
-        : `/eventspercategory/trending`
+      ? `/eventspercurrency/${currency}`
+      : `/eventspercurrency/${currency}`
     );
   };
 

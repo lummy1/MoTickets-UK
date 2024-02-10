@@ -6,6 +6,7 @@ type Props = {
 };
 
 const SwitchTabs = ({ data, onTabChange }: Props) => {
+  
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import CheckoutForm from "../../components/CheckoutForm";
+import { useParams } from "react-router-dom";
+
 
 type Props = {};
 

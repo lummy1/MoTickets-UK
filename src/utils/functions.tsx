@@ -1,6 +1,8 @@
 import { currencies } from "../constant";
 
 const defaultCurrency = process.env.REACT_APP_CURRENCY;
+const defaultCurrencyCode = process.env.REACT_APP_CURRENCYCODE;
+
 
 export const getTags = (tags: string) => {
   return tags.split(", ");
@@ -23,6 +25,13 @@ export const getCurrencyCode = (data: any) => {
   return currency;
 };
 
+
+export const getCurrencyName = (data: any) => {
+  const findCurrency =
+    data && currencies.find((item) => item.name === data?.currency)?.name;
+  const currency = findCurrency ? findCurrency : defaultCurrencyCode;
+  return currency;
+};
 
 type Props = {
   ticketCategories: Array<any>;

@@ -1,10 +1,10 @@
 const imgurl = process.env.REACT_APP_BASEURL;
 
 export const currencies = [
-  {
-    name: "NGN",
-    value: "₦",
-  },
+  // {
+  //   name: "NGN",
+  //   value: "₦",
+  // },
   // {
   //   name: "USD",
   //   value: "$",
@@ -30,11 +30,11 @@ export const countries = [
   //   url: "https://motickets.co",
   //   code: "US",
   // },
-  {
-    name: "Nigeria",
-    url: "https://motickets.ng",
-    code: "NG",
-  },
+  // {
+  //   name: "Nigeria",
+  //   url: "https://motickets.ng",
+  //   code: "NG",
+  // },
   // {
   //   name: "Canada",
   //   url: "https://motickets.co",
@@ -101,22 +101,27 @@ export const company = [
 export const offers = [
   {
     title: "test title",
-    url: "https://motickets.co.uk",
+    url: "/organisers",
     imgs: `${imgurl}/offer_images/1.png`,
   },
   {
     title: "test title",
-    url: "https://motickets.co.uk",
+    url: "/organisers#testlink",
     imgs: `${imgurl}/offer_images/2.png`,
   },
   {
     title: "test title",
-    url: "https://motickets.co.uk",
+    url: "/organisers",
     imgs: `${imgurl}/offer_images/3.png`,
   },
   {
     title: "test title",
-    url: "/loyalty",
+    url: "/organisers",
     imgs: `${imgurl}/offer_images/4.png`,
+  },
+  {
+    title: "test title",
+    url: "/organisers",
+    imgs: `${imgurl}/offer_images/5.png`,
   },
 ];

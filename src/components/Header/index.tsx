@@ -70,18 +70,21 @@ const Header = () => {
           <img src={logo} alt="Website logo" />
         </div>
         <ul className="menuItems">
+        <li className="menuItem" onClick={() => navigationHandler("/organisers")}>
+           For Business
+          </li>
           <li className="menuItem" onClick={() => navigationHandler("/events")}>
             All Events
           </li>
           <li
             className="menuItem"
-            onClick={() => navigationHandler("/create-event")}
+            onClick={() => navigationHandler("/organisers")}
           >
             Create Event
           </li>
-          <li className="menuItem" onClick={() => navigationHandler("/login")}>
+          {/* <li className="menuItem" onClick={() => navigationHandler("/login")}>
             Login
-          </li>
+          </li> */}
           <li className="menuItem">
             <DropdownCountry />
           </li>
