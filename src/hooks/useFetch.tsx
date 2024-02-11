@@ -17,7 +17,7 @@ const useFetch = (url: string) => {
         setTimeout(() => {
           setLoading(false);
           setData(res?.name === "AxiosError" ? null : res);
-        }, 5000 * 1);
+        }, 3000 * 1);
       })
       .catch((err: any) => {
         //console.log(err);

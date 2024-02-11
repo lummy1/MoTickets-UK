@@ -123,6 +123,9 @@ const resetState = () => {
  //       amount: totalAmount*100,
  //       currency: currencycode
  //  });
+
+
+
    const res= await axios.post(`${baseUrl}/dispense/internationalticket`, {
     
     myCart : tick,
