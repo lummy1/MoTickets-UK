@@ -106,7 +106,7 @@ export const offers = [
   },
   {
     title: "test title",
-    url: "/organisers#testlink",
+    url: "/organisers#flexible",
     imgs: `${imgurl}/offer_images/2.png`,
   },
   {
