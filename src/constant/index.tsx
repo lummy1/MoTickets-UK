@@ -101,7 +101,7 @@ export const company = [
 export const offers = [
   {
     title: "test title",
-    url: "/organisers",
+    url: "/organisers#create",
     imgs: `${imgurl}/offer_images/1.png`,
   },
   {
@@ -111,17 +111,17 @@ export const offers = [
   },
   {
     title: "test title",
-    url: "/organisers",
+    url: "/organisers#reward",
     imgs: `${imgurl}/offer_images/3.png`,
   },
   {
     title: "test title",
-    url: "/organisers",
+    url: "/organisers#reward",
     imgs: `${imgurl}/offer_images/4.png`,
   },
   {
     title: "test title",
-    url: "/organisers",
+    url: "/organisers#moticketsapp",
     imgs: `${imgurl}/offer_images/5.png`,
   },
 ];

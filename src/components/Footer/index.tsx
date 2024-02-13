@@ -3,14 +3,35 @@ import { BsInstagram, BsLinkedin, BsTwitter, BsTwitterX } from "react-icons/bs";
 import logo from "./../../assets/logo/motickets_logo_-.png";
 import { company, guests, hosts } from "../../constant";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  import  axios  from "axios";
 
+  const baseUrl= process.env.REACT_APP_BASEURL;
 type Props = {};
 
 const Footer = (props: Props) => {
   const [email, setEmail] = useState("");
 
-  const subscribe = () => {
-    //console.log(email);
+  const subscribe = async () => {
+    
+try{
+    const res= await axios.post(`${baseUrl}/save/subscription`, {
+    
+      email : email,
+      
+    }).then((res: any) => {
+      
+      !res.data.error ? toast(res.data.message) :  toast(res.data.message);
+      //!res.data.error && toast(res.data.message);
+    
+    });
+}catch (error) {
+  toast('email not saved, please try again later');
+  
+}
+
+  
   };
   return (
     <footer className="bg-blackBg-500 w-full">
@@ -23,7 +44,7 @@ const Footer = (props: Props) => {
               href="#"
               aria-label="Brand"
             >
-              <img src={logo} alt="Website logo" />
+              <img src={logo} alt="MoTickets" />
             </a>
           </div>
           {/* End Col */}

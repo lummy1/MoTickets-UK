@@ -11,8 +11,9 @@ import Tags from "../Tags";
 import { PriceSelection, getCurrency, getTags } from "../../utils/functions";
 import { offers } from "../../constant";
 import { useNavigate } from "react-router-dom";
+import  { HashLink } from 'react-router-hash-link';
 
-
+//const HashLink = require('react-router-hash-link');
 const imageURL = process.env.REACT_APP_BASEURL;
 
 const SkItem = () => {
@@ -77,13 +78,16 @@ const Offers = () => {
                   key={i}
                   className="carouselItem"
                  
-                  onClick={() => navigate(`${item.url}`)}
+                  // onClick={() => navigate(`${item.url}`)}
                 >
                 
+                <HashLink smooth to={item.url} >
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                    {/* <Tags data={getTags(item?.tags).slice(0, 2)} /> */}
                   </div>
+
+                </HashLink>
                   {/* <div className="textBlock">
                     <span className="title">{item.title}</span>
                     <p className="text-lg font-medium text-white">

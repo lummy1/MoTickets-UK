@@ -41,7 +41,7 @@ const HeroBanner = (props: Props) => {
       <ContentWrapper>
         <div className="heroBannerContent">
           <span className="title">Unlock the Fun.</span>
-          <span className="subTitle">your ticket to unforgettable events</span>
+          <span className="subTitle">Your Ticket to Unforgettable Events</span>
           <div className="searchInput">
             <input
               type="text"

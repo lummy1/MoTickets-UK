@@ -12,14 +12,14 @@ import  axios  from "axios";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { CountryCode, E164Number } from "libphonenumber-js";
-
+import ContentWrapper from "../../components/ContentWrapper";
 
 import { NumericFormat } from "react-number-format";
 import { Link, useNavigate } from "react-router-dom";
 import { getCurrency, getCurrencyCode } from "../../utils/functions";
 import StripeCheckout from "react-stripe-checkout";
 import usePost from "../../hooks/usePost";
-
+import "./styles.scss";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
@@ -57,6 +57,7 @@ const SuccessComponent = (props: Props) => {
   const [stripe, setStripe] = useState(stripeData);
   const [userData, setUserData] = useState(data);
   const [tickData, setTickData]= useState(ticketData);
+  const [loading, setLoading] = useState(true);
   console.log(stripeData);
   const currency= data && getCurrency(data.data);
   const navigate= useNavigate();
@@ -118,13 +119,6 @@ const resetState = () => {
 
       try {
 
- //      const { data, loading } =  usePost(`/stripe/payment`, {
- //       tokenId : stripeToken.id,
- //       amount: totalAmount*100,
- //       currency: currencycode
- //  });
-
-
 
    const res= await axios.post(`${baseUrl}/dispense/internationalticket`, {
     
@@ -132,13 +126,20 @@ const resetState = () => {
     userdata: userData,
     stripeData: stripe,
     ticketData: tickData,
+  }).then((res: any) => {
+    // setLoading(false);
+    // setData(res?.name === "AxiosError" ? null : res);
+    setTimeout(() => {
+      setLoading(false);
+      //setData(res?.name === "AxiosError" ? null : res);
+    }, 5000 * 1);
   });
    
-  toast(res.data.error);
+  //toast(res.data.error);
   console.log(res.data);
    if(res.data.error === false){
    
-   resetState();
+   //resetState();
    console.log(tick);
 }
  
@@ -154,8 +155,8 @@ tick && stripe && MakeRequest();
 
 
   return (
-    <>
-    
+    <div className="detailsBanner">
+     {!loading ? (
     <div style={{ 
         height: "100vh",
        
@@ -234,7 +235,20 @@ tick && stripe && MakeRequest();
             
   
            
-            </>    
+            ) : (
+              <div className="detailsBannerSkeleton">
+                <ContentWrapper>
+                  <div className="left skeleton"></div>
+                  <div className="right">
+                    {[1, 2, 3, 4, 5, 6, 7].map((item, i) => (
+                      <div key={i} className="row skeleton"></div>
+                    ))}
+                  </div>
+                </ContentWrapper>
+              </div>
+            )}
+            
+             </div>    
 );
 };
 
