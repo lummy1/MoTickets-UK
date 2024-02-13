@@ -105,7 +105,7 @@ export const offers = [
     imgs: `${imgurl}/offer_images/1.png`,
   },
   {
-    title: "test title",
+    title: "test titl",
     url: "/organisers#flexible",
     imgs: `${imgurl}/offer_images/2.png`,
   },
